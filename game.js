@@ -29,7 +29,7 @@ async function startGame() {
     }
 }
 
-class FantaGame {
+class SunkistGame {
     constructor() {
         // Get DOM elements
         this.canContainer = document.getElementById('canContainer');
@@ -69,9 +69,10 @@ class FantaGame {
 
     showWelcomeMessage() {
         this.messageElement.innerHTML = `
-            <h2 style="color: white; font-size: 24px;">Ready to have a sip of Fanta?</h2>
+            <h2 style="color: white; font-size: 24px;">Ready to have a sip of Sunkist?</h2>
             <p style="font-size: 16px;">
                 Tilt your phone towards you when the beam is in the blue zone as if taking a sip.<br>
+                I dare you take as many sips as you can.<br><br>
                 Tap anywhere to start.
             </p>
         `;
@@ -194,7 +195,7 @@ class FantaGame {
     endGame() {
         this.cleanup();
         let message;
-        if (this.points > 7) {
+        if (this.points > 12) {
             message = `
                 <h2 style="color: #FF4500; font-size: 32px;">Good job!</h2>
                 <p style="font-size: 24px;">code: winner</p>
@@ -243,7 +244,7 @@ function restartGame() {
     if (currentGame) {
         currentGame.cleanup();
     }
-    currentGame = new FantaGame();
+    currentGame = new SunkistGame();
     // Set up the click/touch handlers for the new game
     document.addEventListener('click', startGame, { once: true });
     document.addEventListener('touchstart', startGame, { once: true });
@@ -251,7 +252,7 @@ function restartGame() {
 
 // Start the game when the page loads
 window.addEventListener('load', () => {
-    currentGame = new FantaGame();
+    currentGame = new SunkistGame();
     // Set up initial click/touch handlers
     document.addEventListener('click', startGame, { once: true });
     document.addEventListener('touchstart', startGame, { once: true });
